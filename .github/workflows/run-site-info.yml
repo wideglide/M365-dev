@@ -1,0 +1,32 @@
+name: Run aite-info.py on Development
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-aite-info:
+    runs-on: ubuntu-latest
+    environment: Development
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r examples/O365/requirements.txt
+
+      - name: Run aite-info.py
+        env:
+          TENANT_ID: ${{ secrets.TENANT_ID }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_CERTIFICATE: ${{ secrets.CLIENT_CERTIFICATE }}
+          CERT_THUMBPRINT: ${{ secrets.CERT_THUMBPRINT }}
+          SITE_PATH: ${{ secrets.SITE_PATH }}
+        run: |
+          python examples/O365/SharePoint/aite-info.py
