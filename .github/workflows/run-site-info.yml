@@ -27,6 +27,7 @@ jobs:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_CERTIFICATE: ${{ secrets.CLIENT_CERTIFICATE }}
           CERT_THUMBPRINT: ${{ secrets.CERT_THUMBPRINT }}
+          DEFAULT_HOST: ${{ secrets.DEFAULT_HOST }}
           SITE_PATH: ${{ secrets.SITE_PATH }}
         run: |
           python examples/O365/SharePoint/site-info.py
