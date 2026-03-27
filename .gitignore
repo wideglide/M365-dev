@@ -1,0 +1,25 @@
+.DS_Store
+
+# Local environment files
+.env
+.env.*
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Editor and notebook artifacts
+.ipynb_checkpoints/
+
+# Local auth and token caches
+o365_token.txt
+*token-cache.json
